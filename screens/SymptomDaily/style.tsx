@@ -60,18 +60,30 @@ export default StyleSheet.create({
     paddingHorizontal: 10,
   },
   listItemContainer: {
-    backgroundColor: 'rgba(66, 135, 245, 0.2)',
-    borderRadius: 10,
-    marginTop: 10,
     padding: 20,
+    marginTop: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: 'rgba(66, 135, 245, 0.2)',
+  },
+  listItemContainerInActive: {
+    borderRadius: 10,
+  },
+  listItemContainerActive: {
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10
+  },
+  listItemLeft: {
+    backgroundColor: 'transparent'
+  },
+  listItemRight: {
+    backgroundColor: 'transparent'
   },
   listItemTitle: {
     fontSize: 15,
     fontWeight: 'bold',
   },
-  checkbox: {
-    margin: 8,
-  },
+  checkboxContainer: {},
   optionListWrapper: {
     padding: 10,
     borderWidth: 1,
@@ -96,7 +108,6 @@ export default StyleSheet.create({
     borderRadius: 7,
     // borderWidth: 1,
     borderColor: 'lightgray',
-    backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center'
   },
