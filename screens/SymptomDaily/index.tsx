@@ -65,7 +65,7 @@ export default function SymptomsDaily() {
           </View>
           {/* Symptom list */}
           {
-            symptomList.map((item, index) => {
+            isActive && symptomList.map((item, index) => {
               return (
                 <View key={item.symptom + index} style={styles.optionListWrapper}>
                   <View style={styles.optionItemLabelContainer}>
@@ -74,14 +74,17 @@ export default function SymptomsDaily() {
                   {/* Severity scale options*/}
                   <View style={styles.optionContainer}>
                     {item.severityScale?.length && item.severityScale.map((ele, index) => {
+                      if (index === 1) {
+                        ele.isSelected = true;
+                      }
                       return (
-                        <View key={ele.severity + index} style={styles.optionLabelWrapper}>
+                        <View key={ele.severity + index} style={[styles.optionLabelWrapper, ele.isSelected ? styles.optionLabelWrapperSelected : {}]}>
                           <CheckBox
                             checked={ele.isSelected}
                             containerStyle={styles.checkboxContainer}
                           // checkedColor={'#1FD7AE'}
                           />
-                          <MonoText style={styles.optionLabel}>{ele.severity}</MonoText>
+                          <MonoText style={[styles.optionLabel, ele.isSelected ? styles.optionLabelSelected : {}]}>{ele.severity}</MonoText>
                         </View>
                       );
                     })}
@@ -109,15 +112,12 @@ export default function SymptomsDaily() {
         </View>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.7)" />
         <ScrollView style={styles.listItemWrapper}>
-
           {
             renderDayList()
           }
-
           <TouchableOpacity style={styles.buttonContainer}>
             <MonoText style={styles.buttonLabel}>Submit</MonoText>
           </TouchableOpacity>
-
         </ScrollView>
       </View>
     </SafeAreaView>

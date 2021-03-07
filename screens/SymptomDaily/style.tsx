@@ -45,7 +45,6 @@ export default StyleSheet.create({
   },
   startDateText: {
     fontSize: 14,
-    fontWeight: 'bold',
   },
   separator: {
     marginVertical: 10,
@@ -81,7 +80,6 @@ export default StyleSheet.create({
   },
   listItemTitle: {
     fontSize: 15,
-    fontWeight: 'bold',
   },
   checkboxContainer: {},
   optionListWrapper: {
@@ -105,8 +103,8 @@ export default StyleSheet.create({
   optionLabelWrapper: {
     paddingHorizontal: 10,
     // paddingVertical: 4,
-    borderRadius: 7,
     // borderWidth: 1,
+    // borderRadius: 7,
     borderColor: 'lightgray',
     justifyContent: 'center',
     alignItems: 'center',
@@ -118,7 +116,8 @@ export default StyleSheet.create({
     fontSize: 10
   },
   optionLabelSelected: {
-    // color: 'white'
+    // color: 'white',
+    // backgroundColor: 'transparent'
   },
   buttonContainer: {
     padding: 20,
