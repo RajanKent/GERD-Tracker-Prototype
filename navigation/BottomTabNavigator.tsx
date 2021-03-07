@@ -20,7 +20,16 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="TabOne"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      tabBarOptions={{
+        tabStyle: {
+          marginBottom: 4
+        },
+        activeTintColor: Colors[colorScheme].tint,
+        labelStyle: {
+          fontWeight: 'bold',
+          fontFamily: 'space-mono',
+        }
+      }}>
       <BottomTab.Screen
         name="TabOne"
         component={TabOneNavigator}
@@ -68,7 +77,22 @@ const TabOneStack = createStackNavigator<TabOneParamList>();
 
 function TabOneNavigator() {
   return (
-    <TabOneStack.Navigator>
+    <TabOneStack.Navigator
+      screenOptions={{
+        headerShown: false,
+        headerStyle: {
+          backgroundColor: '#4287f5',
+          elevation: 0,
+          shadowOpacity: 0,
+          borderBottomWidth: 0,
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          fontFamily: 'space-mono'
+        },
+      }}
+    >
       <TabOneStack.Screen
         name="TabOneScreen"
         component={TabOneScreen}
