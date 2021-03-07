@@ -7,7 +7,7 @@ import * as React from 'react';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import TabOneScreen from '../screens/TabOneScreen';
+import SymptomsDaily from '../screens/SymptomDaily';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import TabThreeScreen from '../screens/TabThreeScreen';
 import { BottomTabParamList, TabOneParamList, TabTwoParamList, TabThreeParamList } from '../types';
@@ -95,7 +95,7 @@ function TabOneNavigator() {
     >
       <TabOneStack.Screen
         name="TabOneScreen"
-        component={TabOneScreen}
+        component={SymptomsDaily}
         options={{ headerTitle: 'Symptoms Daily' }}
       />
     </TabOneStack.Navigator>
