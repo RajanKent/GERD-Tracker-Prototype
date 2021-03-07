@@ -104,12 +104,12 @@ export default StyleSheet.create({
   },
   optionLabelWrapper: {
     paddingHorizontal: 10,
-    paddingVertical: 4,
+    // paddingVertical: 4,
     borderRadius: 7,
     // borderWidth: 1,
     borderColor: 'lightgray',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   optionLabelWrapperSelected: {
     // backgroundColor: '#4287f5' //00a9e0
