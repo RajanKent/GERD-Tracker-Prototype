@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   mainContainer: {
@@ -11,16 +11,17 @@ export default StyleSheet.create({
     backgroundColor: 'transparent',
     justifyContent: 'center',
     alignItems: 'center',
+    ...Platform.select({
+      android: {
+        marginTop: 10
+      }
+    }),
     paddingHorizontal: 10,
     paddingVertical: 10,
+
   },
   headerText: {
     fontSize: 17,
-    fontWeight: 'bold',
-    color: 'white'
-  },
-  headerTime: {
-    fontSize: 12,
     fontWeight: 'bold',
     color: 'white'
   },
@@ -30,7 +31,6 @@ export default StyleSheet.create({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     width: '97%',
-    backgroundColor: 'white',
   },
   title: {
     fontSize: 20,
@@ -42,7 +42,6 @@ export default StyleSheet.create({
     width: '97%',
     alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: 'gray',
   },
   startDateText: {
     fontSize: 14,
@@ -61,11 +60,8 @@ export default StyleSheet.create({
     paddingHorizontal: 10,
   },
   listItemContainer: {
-    backgroundColor: '#ededed',
-    // backgroundColor: 'rgba(66, 135, 245, 0.2)',
-    // borderTopRightRadius: 20,
-    // borderTopLeftRadius: 20,
-    borderRadius: 20,
+    backgroundColor: 'rgba(66, 135, 245, 0.2)',
+    borderRadius: 10,
     marginTop: 10,
     padding: 20,
   },

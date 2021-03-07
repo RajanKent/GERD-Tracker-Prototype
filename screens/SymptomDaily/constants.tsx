@@ -26,3 +26,8 @@ export {
   SYMPTOMS_LIST,
   SEVERITY_SCALE_OPTIONS
 }
+
+
+const SYMPTOM_DAILY = {
+
+}
