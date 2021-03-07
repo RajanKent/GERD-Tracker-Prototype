@@ -8,17 +8,17 @@ export default {
         screens: {
           TabOne: {
             screens: {
-              TabOneScreen: 'one',
+              TabOneScreen: 'symptom-daily',
             },
           },
           TabTwo: {
             screens: {
-              TabTwoScreen: 'two',
+              TabTwoScreen: 'psqi',
             },
           },
           TabThree: {
             screens: {
-              TabThreeScreen: 'three',
+              TabThreeScreen: 'food-sleep',
             },
           },
         },
