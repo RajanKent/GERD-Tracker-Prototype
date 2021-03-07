@@ -25,7 +25,7 @@ export default function BottomTabNavigator() {
         name="TabOne"
         component={TabOneNavigator}
         options={{
-          title: 'Symptom Daily',
+          title: 'Symptoms Daily',
           tabBarIcon: ({ color }) => <TabBarMCIcon name="format-list-checks" color={color} />,
         }}
       />
@@ -72,7 +72,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="TabOneScreen"
         component={TabOneScreen}
-        options={{ headerTitle: 'Symptom Daily' }}
+        options={{ headerTitle: 'Symptoms Daily' }}
       />
     </TabOneStack.Navigator>
   );

@@ -8,7 +8,7 @@ export default {
         screens: {
           TabOne: {
             screens: {
-              TabOneScreen: 'symptom-daily',
+              TabOneScreen: 'symptoms-daily',
             },
           },
           TabTwo: {
