@@ -75,21 +75,27 @@ function TabBarMIcon(props: { name: React.ComponentProps<typeof MaterialIcons>['
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const TabOneStack = createStackNavigator<TabOneParamList>();
 
+
+const commonTabStyle = {
+  headerStyle: {
+    backgroundColor: '#004b87',
+    elevation: 0,
+    shadowOpacity: 0,
+    borderBottomWidth: 0,
+  },
+  headerTintColor: '#fff',
+  headerTitleStyle: {
+    fontFamily: 'mont-semi-bold',
+    alignSelf: 'center'
+  }
+};
+
 function TabOneNavigator() {
   return (
     <TabOneStack.Navigator
       screenOptions={{
         headerShown: false,
-        headerStyle: {
-          backgroundColor: '#4287f5',
-          elevation: 0,
-          shadowOpacity: 0,
-          borderBottomWidth: 0,
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontFamily: 'mont-semi-bold'
-        },
+        ...commonTabStyle
       }}
     >
       <TabOneStack.Screen
@@ -105,7 +111,12 @@ const TabTwoStack = createStackNavigator<TabTwoParamList>();
 
 function TabTwoNavigator() {
   return (
-    <TabTwoStack.Navigator>
+    <TabTwoStack.Navigator
+      screenOptions={{
+        headerShown: true,
+        ...commonTabStyle
+      }}
+    >
       <TabTwoStack.Screen
         name="TabTwoScreen"
         component={TabTwoScreen}
@@ -118,7 +129,12 @@ function TabTwoNavigator() {
 const TabThreeStack = createStackNavigator<TabThreeParamList>();
 function TabThreeNavigator() {
   return (
-    <TabThreeStack.Navigator>
+    <TabThreeStack.Navigator
+      screenOptions={{
+        headerShown: true,
+        ...commonTabStyle
+      }}
+    >
       <TabThreeStack.Screen
         name="TabThreeScreen"
         component={TabThreeScreen}
