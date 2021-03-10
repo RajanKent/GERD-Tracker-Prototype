@@ -18,7 +18,7 @@ const multiSaveItem = (items: any) => {
 
 const getItemFromStore = async (key: string) => {
   try {
-    return AsyncStorage.getItem(key);
+    return AsyncStorage.getItem(key).then(response => JSON.parse(response));
   } catch (error) {
     // console.error('AsyncStorage error: ' + error.message);
   }

@@ -22,7 +22,16 @@ export default function SymptomsDaily() {
   const updateSymptomList = React.useCallback(async () => {
     const SYMPTOM_DAILY_KEY = await STORAGE_CONSTANTS.SYMPTOM_DAILY_KEY(activeDay);
     const savedSymptomList = await storageService.getItemFromStore(SYMPTOM_DAILY_KEY, symptomList);
-    return savedSymptomList;
+    console.log("🚀 ~ file: index.tsx ~ line 25 ~ updateSymptomList ~ savedSymptomList", savedSymptomList)
+    if (savedSymptomList) {
+      setSymptomList(savedSymptomList);
+    } else {
+      setSymptomList(getSymptomList());
+    }
+  }, [activeDay]);
+
+  React.useEffect(() => {
+    updateSymptomList();
   }, [activeDay]);
 
   const getSymptomList = () => {
@@ -49,18 +58,6 @@ export default function SymptomsDaily() {
     return symptoms;
   }
 
-  React.useEffect(() => {
-
-    updateSymptomList();
-
-    if (symptomList) {
-      setSymptomList(symptomList);
-    } else {
-      setSymptomList(getSymptomList());
-    }
-
-  }, [activeDay]);
-
   const _handleOnCheck = (selectedSymptom: object, selectedScale: string) => {
     const updatedSymptomList = symptomList?.map((symptom: object) => {
       if (symptom.symptomId === selectedSymptom.symptomId) {
@@ -78,10 +75,10 @@ export default function SymptomsDaily() {
     setSymptomList(updatedSymptomList);
   }
 
-  const _handleUpdateDate = (type) => {
+  const _handleUpdateDate = (type: string) => {
     console.log("🚀 ~ file: index.tsx ~ line 82 ~ SymptomsDaily ~ type", type)
     if (type === 'back') {
-      setActiveDay(moment(activeDay).subtract(1, 'day'))
+      setActiveDay(moment(activeDay).subtract(1, 'day'));
     } else if (type === 'next') {
       setActiveDay(moment(activeDay).add(1, 'day'))
     }
@@ -93,7 +90,7 @@ export default function SymptomsDaily() {
       return symptom.severityScale.find((severity) => severity.isSelected === true)
     });
 
-    if (checkedItems.length !== symptomList.length) {
+    if (checkedItems.length !== symptomList?.length) {
       return Alert.alert('Error!', "Please check all the symptom's severity.");
     } else {
       const SYMPTOM_DAILY_KEY = await STORAGE_CONSTANTS.SYMPTOM_DAILY_KEY(activeDay);
@@ -102,6 +99,7 @@ export default function SymptomsDaily() {
     }
 
   }
+
   const renderSymptoms = () => {
 
     return (
@@ -164,7 +162,7 @@ export default function SymptomsDaily() {
               <MaterialIcons name={'arrow-back-ios'} size={22} color="#979797" />
             </TouchableOpacity>
             <TouchableOpacity style={styles.listItemMiddle}>
-              <MonoText style={styles.listItemTitle}>{moment(startDate).format('LL')}</MonoText>
+              <MonoText style={styles.listItemTitle}>{moment(activeDay).format('LL')}</MonoText>
             </TouchableOpacity>
             <TouchableOpacity style={styles.listItemRight} onPress={() => _handleUpdateDate('next')}>
               <MaterialIcons name={'arrow-forward-ios'} size={22} color="#979797" />
