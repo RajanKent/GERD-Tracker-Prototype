@@ -145,6 +145,7 @@ export default StyleSheet.create({
   },
   buttonLabel: {
     color: 'white',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'mont-semi-bold'
   }
 });
