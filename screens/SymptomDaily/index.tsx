@@ -22,7 +22,6 @@ export default function SymptomsDaily() {
   const updateSymptomList = React.useCallback(async () => {
     const SYMPTOM_DAILY_KEY = await STORAGE_CONSTANTS.SYMPTOM_DAILY_KEY(activeDay);
     const savedSymptomList = await storageService.getItemFromStore(SYMPTOM_DAILY_KEY, symptomList);
-    console.log("🚀 ~ file: index.tsx ~ line 25 ~ updateSymptomList ~ savedSymptomList", savedSymptomList)
     if (savedSymptomList) {
       setSymptomList(savedSymptomList);
     } else {
