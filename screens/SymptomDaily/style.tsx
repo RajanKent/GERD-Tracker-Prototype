@@ -17,7 +17,7 @@ export default StyleSheet.create({
       }
     }),
     paddingHorizontal: 10,
-    paddingVertical: 10,
+    paddingVertical: 15,
 
   },
   headerText: {
@@ -58,16 +58,17 @@ export default StyleSheet.create({
   },
   listItemWrapper: {
     marginBottom: 100,
+    marginTop: 10,
+    paddingHorizontal: 10
   },
   listItemContainer: {
     padding: 20,
+    marginHorizontal: 5,
     marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // backgroundColor: '#e5e5e5',
-    backgroundColor: 'rgba(66, 135, 245, 0.1)',
+    backgroundColor: 'rgba(66, 135, 245, 0.07)',
     borderRadius: 30,
-    width: '100%'
   },
   listItemContainerInActive: {
     borderRadius: 10,
