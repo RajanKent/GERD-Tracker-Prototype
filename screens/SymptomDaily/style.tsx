@@ -22,7 +22,7 @@ export default StyleSheet.create({
   },
   headerText: {
     fontSize: 17,
-    fontWeight: 'bold',
+    fontFamily: 'mont-semi-bold',
     color: 'white'
   },
   subContainer: {

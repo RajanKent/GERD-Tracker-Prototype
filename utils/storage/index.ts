@@ -40,4 +40,4 @@ const clearAll = () => {
   }
 }
 
-export const STORAGE: object = { saveItem, multiSaveItem, removeItem, clearAll, getItemFromStore };
+export const storageService: any = { saveItem, multiSaveItem, removeItem, clearAll, getItemFromStore };

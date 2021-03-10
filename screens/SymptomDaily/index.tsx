@@ -8,7 +8,7 @@ import { Text, View } from '../../components/Themed';
 import { MonoText } from '../../components/StyledText';
 import { SYMPTOMS_LIST, SEVERITY_SCALE_OPTIONS } from './constants';
 import { STORAGE_CONSTANTS } from '../../constants/storage';
-import { STORAGE } from '../../utils/storage';
+import { storageService } from '../../utils/storage';
 import { randomId } from '../../helpers';
 import styles from './style';
 
@@ -19,31 +19,46 @@ export default function SymptomsDaily() {
 
   const [symptomList, setSymptomList] = React.useState(null);
 
-  React.useEffect(() => {
-    const getSymptomList = () => {
-      const symptoms: any = [];
-      const getSeverityScale = () => {
-        const severityScale: object[] = [];
-        SEVERITY_SCALE_OPTIONS.forEach((item) => {
-          severityScale.push({
-            severity: item,
-            isSelected: false
-          })
-        });
-        return severityScale;
-      }
+  const updateSymptomList = React.useCallback(async () => {
+    const SYMPTOM_DAILY_KEY = await STORAGE_CONSTANTS.SYMPTOM_DAILY_KEY(activeDay);
+    const savedSymptomList = await storageService.getItemFromStore(SYMPTOM_DAILY_KEY, symptomList);
+    return savedSymptomList;
+  }, [activeDay]);
 
-      SYMPTOMS_LIST.forEach((item, index) => {
-        symptoms.push({
-          symptomId: randomId() + index,
-          symptom: item,
-          severityScale: getSeverityScale()
-        });
+  const getSymptomList = () => {
+    const symptoms: any = [];
+    const getSeverityScale = () => {
+      const severityScale: object[] = [];
+      SEVERITY_SCALE_OPTIONS.forEach((item) => {
+        severityScale.push({
+          severity: item,
+          isSelected: false
+        })
       });
-
-      return symptoms;
+      return severityScale;
     }
-    setSymptomList(getSymptomList());
+
+    SYMPTOMS_LIST.forEach((item, index) => {
+      symptoms.push({
+        symptomId: randomId() + index,
+        symptom: item,
+        severityScale: getSeverityScale()
+      });
+    });
+
+    return symptoms;
+  }
+
+  React.useEffect(() => {
+
+    updateSymptomList();
+
+    if (symptomList) {
+      setSymptomList(symptomList);
+    } else {
+      setSymptomList(getSymptomList());
+    }
+
   }, [activeDay]);
 
   const _handleOnCheck = (selectedSymptom: object, selectedScale: string) => {
@@ -63,18 +78,29 @@ export default function SymptomsDaily() {
     setSymptomList(updatedSymptomList);
   }
 
-  const _handleOnSubmit = () => {
+  const _handleUpdateDate = (type) => {
+    console.log("🚀 ~ file: index.tsx ~ line 82 ~ SymptomsDaily ~ type", type)
+    if (type === 'back') {
+      setActiveDay(moment(activeDay).subtract(1, 'day'))
+    } else if (type === 'next') {
+      setActiveDay(moment(activeDay).add(1, 'day'))
+    }
+  }
+
+  const _handleOnSubmit = async () => {
+    // await storageService.clearAll();
     const checkedItems = symptomList?.filter((symptom) => {
       return symptom.severityScale.find((severity) => severity.isSelected === true)
-    })
+    });
 
     if (checkedItems.length !== symptomList.length) {
       return Alert.alert('Error!', "Please check all the symptom's severity.");
+    } else {
+      const SYMPTOM_DAILY_KEY = await STORAGE_CONSTANTS.SYMPTOM_DAILY_KEY(activeDay);
+      await storageService.saveItem(SYMPTOM_DAILY_KEY, symptomList);
+      return Alert.alert('Success!', "Symptoms's severity response saved!");
     }
 
-    // TODO: save to local storage
-    // console.log('STORAGE', STORAGE)
-    // console.log('SYMPTOM_DAILY_KEY', STORAGE_CONSTANTS.SYMPTOM_DAILY_KEY)
   }
   const renderSymptoms = () => {
 
@@ -134,13 +160,13 @@ export default function SymptomsDaily() {
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.7)" /> */}
         <View style={styles.mainContent}>
           <View style={[styles.listItemContainer]}>
-            <TouchableOpacity style={styles.listItemLeft}>
+            <TouchableOpacity style={styles.listItemLeft} onPress={() => _handleUpdateDate('back')}>
               <MaterialIcons name={'arrow-back-ios'} size={22} color="#979797" />
             </TouchableOpacity>
             <TouchableOpacity style={styles.listItemMiddle}>
               <MonoText style={styles.listItemTitle}>{moment(startDate).format('LL')}</MonoText>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.listItemRight}>
+            <TouchableOpacity style={styles.listItemRight} onPress={() => _handleUpdateDate('next')}>
               <MaterialIcons name={'arrow-forward-ios'} size={22} color="#979797" />
             </TouchableOpacity>
           </View>
