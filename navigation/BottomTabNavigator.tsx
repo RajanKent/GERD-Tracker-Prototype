@@ -27,7 +27,7 @@ export default function BottomTabNavigator() {
         activeTintColor: Colors[colorScheme].tint,
         labelStyle: {
           fontWeight: 'bold',
-          fontFamily: 'space-mono',
+          fontFamily: 'mont-semi-bold',
         }
       }}>
       <BottomTab.Screen
@@ -88,8 +88,7 @@ function TabOneNavigator() {
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
-          fontWeight: 'bold',
-          fontFamily: 'space-mono'
+          fontFamily: 'mont-semi-bold'
         },
       }}
     >

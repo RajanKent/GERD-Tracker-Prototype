@@ -28,6 +28,35 @@ export {
 }
 
 
-const SYMPTOM_DAILY = {
+const SYMPTOM_DAILY = [
+  {
+    name: 'rajanmaharjan',
+    symptomsDaily: [{
+      date: '',
+      symptomsList: [{
+        symptom: '',
+        severityScale: [{
+          scale: ''
+        }]
+      }]
+    }],
+    psqi: [],
+    images: [{
+      timestamp: '',
+      path: ''
+    }]
+  }
+];
 
+type UserProfile = {
+  name: string,
+  symptomsDaily: object[],
+  psqi: object[],
+  images: object[]
+}
+
+export function createNewProfile(obj: UserProfile) {
+  const newUserProfile: object[] = [];
+
+  return newUserProfile;
 }

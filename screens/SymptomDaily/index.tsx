@@ -2,7 +2,7 @@ import * as React from 'react';
 import { SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
 import moment from 'moment';
 import { Ionicons } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
 
 import { CheckBox } from 'react-native-elements'
@@ -14,15 +14,6 @@ import styles from './style';
 export default function SymptomsDaily() {
 
   const startDate = moment();
-  const getSymptomRecordDays = () => {
-    const days = [];
-    let day = 0, len = 7;
-    while (day < len) {
-      days.push(moment(moment(startDate).add(day, 'days')).format('LL'));
-      day++;
-    }
-    return days;
-  }
 
   const getSymptomList = () => {
     const symptoms: object[] = [];
@@ -47,55 +38,53 @@ export default function SymptomsDaily() {
     return symptoms;
   }
 
-  const renderDayList = () => {
-    const symptomRecordDays = getSymptomRecordDays();
+  const renderSymptoms = () => {
     const symptomList = getSymptomList();
 
-    return symptomRecordDays.map((dayItem, index) => {
-      const isActive = true;
-      return (
-        <View key={dayItem + index}>
-          <View style={[styles.listItemContainer, isActive ? styles.listItemContainerActive : styles.listItemContainerInActive]}>
-            <View style={styles.listItemLeft}>
-              <MonoText style={styles.listItemTitle}>Day #{index + 1}: {dayItem}</MonoText>
-            </View>
-            <View style={styles.listItemRight}>
-              <Ionicons name={isActive ? 'ios-chevron-up-outline' : 'ios-chevron-down-outline'} size={24} color="#9e9Da1" />
-            </View>
-          </View>
-          {/* Symptom list */}
-          {
-            isActive && symptomList.map((item, index) => {
-              return (
-                <View key={item.symptom + index} style={styles.optionListWrapper}>
-                  <View style={styles.optionItemLabelContainer}>
-                    <MonoText style={styles.optionItemLabel}>{`${index + 1}. ${item.symptom}`}</MonoText>
-                  </View>
-                  {/* Severity scale options*/}
-                  <View style={styles.optionContainer}>
-                    {item.severityScale?.length && item.severityScale.map((ele, index) => {
-                      if (index === 1) {
-                        ele.isSelected = true;
-                      }
-                      return (
-                        <View key={ele.severity + index} style={[styles.optionLabelWrapper, ele.isSelected ? styles.optionLabelWrapperSelected : {}]}>
-                          <CheckBox
-                            checked={ele.isSelected}
-                            containerStyle={styles.checkboxContainer}
-                          // checkedColor={'#1FD7AE'}
-                          />
-                          <MonoText style={[styles.optionLabel, ele.isSelected ? styles.optionLabelSelected : {}]}>{ele.severity}</MonoText>
-                        </View>
-                      );
-                    })}
-                  </View>
+    return (
+      <>
+        {/* Symptom list */}
+        {
+          symptomList.map((item, index) => {
+            return (
+              <View key={item.symptom + index} style={styles.optionListWrapper}>
+                <View style={styles.optionItemLabelContainer}>
+                  <MonoText style={styles.optionItemLabel}>{`${index + 1}. ${item.symptom}`}</MonoText>
                 </View>
-              );
-            })
-          }
-        </View>
-      );
-    });
+                {/* Severity scale options*/}
+                <View style={styles.optionContainer}>
+                  {item.severityScale?.length && item.severityScale.map((ele, index) => {
+                    if (index === 1) {
+                      ele.isSelected = true;
+                    }
+                    const getLabelBackground = () => {
+                      index++;
+                      return {
+                        backgroundColor: `rgba(207, 116, 116, ${0.3 * index / 1.5} )`
+                      }
+                    };
+
+                    console.log(getLabelBackground())
+                    return (
+                      <View key={ele.severity + index} style={[styles.optionWrapper]}>
+                        <CheckBox
+                          checked={ele.isSelected}
+                          containerStyle={styles.checkboxContainer}
+                        // checkedColor={'#1FD7AE'}
+                        />
+                        <View style={[styles.optionLabelWrapper, getLabelBackground()]}>
+                          <MonoText style={[styles.optionLabel]}>{ele.severity}</MonoText>
+                        </View>
+                      </View>
+                    );
+                  })}
+                </View>
+              </View>
+            );
+          })
+        }
+      </>
+    )
   };
 
 
@@ -105,20 +94,31 @@ export default function SymptomsDaily() {
         <MonoText style={styles.headerText}>Good Morning!, Rajan</MonoText>
       </View>
       <View style={styles.subContainer}>
-        <MonoText style={styles.title}>Symptom Daily</MonoText>
+        <MonoText style={styles.title}>Symptoms Daily</MonoText>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.7)" />
-        <View style={styles.startDateContainer}>
-          <MonoText style={styles.startDateText}>Start Date: {moment(startDate).format('LLLL')}</MonoText>
+        {/* <View style={styles.startDateContainer}>
+          <MonoText style={styles.startDateText}>Start Date: {moment(startDate).format('LLL')}</MonoText>
+        </View> */}
+        {/* <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.7)" /> */}
+        <View style={styles.mainContent}>
+          <View style={[styles.listItemContainer]}>
+            <TouchableOpacity style={styles.listItemLeft}>
+              <MaterialIcons name={'arrow-back-ios'} size={22} color="#979797" />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.listItemMiddle}>
+              <MonoText style={styles.listItemTitle}>{moment(startDate).format('LL')}</MonoText>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.listItemRight}>
+              <MaterialIcons name={'arrow-forward-ios'} size={22} color="#979797" />
+            </TouchableOpacity>
+          </View>
+          <ScrollView style={styles.listItemWrapper}>
+            {renderSymptoms()}
+            <TouchableOpacity style={styles.buttonContainer}>
+              <MonoText style={styles.buttonLabel}>Submit</MonoText>
+            </TouchableOpacity>
+          </ScrollView>
         </View>
-        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.7)" />
-        <ScrollView style={styles.listItemWrapper}>
-          {
-            renderDayList()
-          }
-          <TouchableOpacity style={styles.buttonContainer}>
-            <MonoText style={styles.buttonLabel}>Submit</MonoText>
-          </TouchableOpacity>
-        </ScrollView>
       </View>
     </SafeAreaView>
   );

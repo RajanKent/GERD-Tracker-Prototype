@@ -16,6 +16,10 @@ export default function useCachedResources() {
         await Font.loadAsync({
           ...Ionicons.font,
           'space-mono': require('../assets/fonts/SpaceMono-Regular.ttf'),
+          'mont-regular': require('../assets/fonts//Montserrat-Regular.ttf'),
+          'mont-medium': require('../assets/fonts/Montserrat-Medium.ttf'),
+          'mont-semi-bold': require('../assets/fonts/Montserrat-SemiBold.ttf'),
+          'mont-bold': require('../assets/fonts/Montserrat-Bold.ttf'),
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service

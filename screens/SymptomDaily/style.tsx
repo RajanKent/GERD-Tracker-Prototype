@@ -35,7 +35,8 @@ export default StyleSheet.create({
   title: {
     fontSize: 20,
     marginTop: 10,
-    fontWeight: 'bold',
+    color: '#4C545B',
+    fontFamily: 'mont-medium'
   },
   startDateContainer: {
     padding: 10,
@@ -51,19 +52,22 @@ export default StyleSheet.create({
     height: 1,
     width: '80%',
   },
-  listItemWrapper: {
+  mainContent: {
     width: '100%',
-    marginTop: 10,
-    // marginVertical: 10,
-    // marginBottom: 20,
     paddingHorizontal: 10,
+  },
+  listItemWrapper: {
+    marginBottom: 100,
   },
   listItemContainer: {
     padding: 20,
     marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: 'rgba(66, 135, 245, 0.2)',
+    // backgroundColor: '#e5e5e5',
+    backgroundColor: 'rgba(66, 135, 245, 0.1)',
+    borderRadius: 30,
+    width: '100%'
   },
   listItemContainerInActive: {
     borderRadius: 10,
@@ -75,17 +79,24 @@ export default StyleSheet.create({
   listItemLeft: {
     backgroundColor: 'transparent'
   },
+  listItemMiddle: {
+    backgroundColor: 'transparent',
+  },
   listItemRight: {
     backgroundColor: 'transparent'
   },
   listItemTitle: {
-    fontSize: 15,
+    fontSize: 18,
+    color: '#8F9499',
+    fontFamily: 'mont-semi-bold'
   },
   checkboxContainer: {},
   optionListWrapper: {
     padding: 10,
     borderWidth: 1,
-    borderColor: '#ededed'
+    borderColor: '#ededed',
+    borderRadius: 10,
+    marginVertical: 10
   },
   optionItemLabelContainer: {
     borderBottomWidth: 1,
@@ -100,20 +111,25 @@ export default StyleSheet.create({
     marginTop: 10,
     paddingVertical: 10,
   },
-  optionLabelWrapper: {
-    paddingHorizontal: 10,
-    // paddingVertical: 4,
-    // borderWidth: 1,
-    // borderRadius: 7,
-    borderColor: 'lightgray',
+  optionWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  optionLabelWrapper: {
+    paddingVertical: 4,
+    borderRadius: 7,
+    paddingHorizontal: 10,
+    // borderWidth: 1,
+    // borderColor: 'lightgray',
   },
   optionLabelWrapperSelected: {
     // backgroundColor: '#4287f5' //00a9e0
   },
+
   optionLabel: {
-    fontSize: 10
+    fontSize: 10,
+    color: 'white',
+    fontFamily: 'mont-bold'
   },
   optionLabelSelected: {
     // color: 'white',
@@ -122,8 +138,9 @@ export default StyleSheet.create({
   buttonContainer: {
     padding: 20,
     backgroundColor: '#004b87',
-    borderRadius: 20,
-    marginVertical: 30,
+    borderRadius: 10,
+    marginTop: 20,
+    marginBottom: 60
   },
   buttonLabel: {
     color: 'white',
