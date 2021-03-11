@@ -9,10 +9,11 @@ export default StyleSheet.create({
     width: '99%',
     marginTop: 10,
     alignItems: 'center',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   scrollViewContainer: {
-    marginHorizontal: 10
+    marginHorizontal: 10,
+    paddingBottom: 50
   },
   questionContainer: {
     padding: 20,
