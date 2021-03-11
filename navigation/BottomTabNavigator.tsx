@@ -8,7 +8,7 @@ import * as React from 'react';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import SymptomsDaily from '../screens/SymptomDaily';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import TabTwoScreen from '../screens/PSQI';
 import TabThreeScreen from '../screens/TabThreeScreen';
 import { BottomTabParamList, TabOneParamList, TabTwoParamList, TabThreeParamList } from '../types';
 
@@ -120,7 +120,7 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="TabTwoScreen"
         component={TabTwoScreen}
-        options={{ headerTitle: 'PSQI' }}
+        options={{ headerTitle: 'Sleep Quality Assessment (PSQI)' }}
       />
     </TabTwoStack.Navigator>
   );

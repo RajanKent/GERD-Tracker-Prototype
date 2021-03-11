@@ -3,10 +3,48 @@ import { Platform, StyleSheet } from "react-native";
 export default StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: '#004b87', // '#4287f5',
     alignItems: 'center',
-    justifyContent: 'center'
   },
+  container: {
+    width: '99%',
+    marginTop: 10,
+    alignItems: 'center',
+    backgroundColor: 'transparent'
+  },
+  scrollViewContainer: {
+    marginHorizontal: 10
+  },
+  questionContainer: {
+    padding: 20,
+    width: '100%',
+    // backgroundColor: '#004b87',
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    marginVertical: 10,
+    borderRadius: 10
+  },
+  indicatorStyle: {
+    marginLeft: -20
+  },
+  questionLabel: {},
+  questionLabelText: {
+    fontSize: 15,
+  },
+  separator: {
+    marginVertical: 10,
+    height: 1,
+    width: '90%',
+  },
+  answerWrapper: {
+    width: '100%',
+  },
+  textInput: {
+    borderBottomColor: '#e5e5e5',
+    borderBottomWidth: 1,
+    height: 40
+  },
+
+
   headerContainer: {
     backgroundColor: 'transparent',
     justifyContent: 'center',
@@ -47,11 +85,7 @@ export default StyleSheet.create({
   startDateText: {
     fontSize: 14,
   },
-  separator: {
-    marginVertical: 10,
-    height: 1,
-    width: '80%',
-  },
+
   mainContent: {
     width: '100%',
     paddingHorizontal: 10,
@@ -106,7 +140,6 @@ export default StyleSheet.create({
     borderColor: '#ededed'
   },
   optionItemLabel: {
-    fontSize: 15,
     paddingBottom: 10
   },
   optionContainer: {
