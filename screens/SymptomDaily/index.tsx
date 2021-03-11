@@ -125,7 +125,8 @@ export default function SymptomsDaily() {
                     const getLabelBackground = () => {
                       index++;
                       return {
-                        backgroundColor: `rgba(207, 116, 116, ${0.3 * index / 1.5} )`
+                        backgroundColor: `rgba(207, 116, 116, ${0.43 * index / 1.5
+                          } )`
                       }
                     };
 
@@ -185,8 +186,8 @@ export default function SymptomsDaily() {
             </TouchableOpacity>
           </ScrollView>
           <DateTimePickerModal
-            isVisible={isDatePickerVisible}
             mode="date"
+            isVisible={isDatePickerVisible}
             onConfirm={_handleOnDateChange}
             onCancel={() => setDatePickerVisible(false)}
           />
