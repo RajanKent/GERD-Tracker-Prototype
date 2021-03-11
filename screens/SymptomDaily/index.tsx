@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { Alert, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
-import { CheckBox } from 'react-native-elements'
+import { Alert, SafeAreaView, ScrollView, TouchableOpacity, Platform } from 'react-native';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { MaterialIcons } from '@expo/vector-icons';
+import { CheckBox } from 'react-native-elements'
 import moment from 'moment';
 
 import { Text, View } from '../../components/Themed';
@@ -16,6 +17,7 @@ export default function SymptomsDaily() {
 
   const [activeDay, setActiveDay] = React.useState(moment());
   const [startDate, setStartDate] = React.useState(moment());
+  const [isDatePickerVisible, setDatePickerVisible] = React.useState(false);
 
   const [symptomList, setSymptomList] = React.useState(null);
 
@@ -75,7 +77,6 @@ export default function SymptomsDaily() {
   }
 
   const _handleUpdateDate = (type: string) => {
-    console.log("🚀 ~ file: index.tsx ~ line 82 ~ SymptomsDaily ~ type", type)
     if (type === 'back') {
       setActiveDay(moment(activeDay).subtract(1, 'day'));
     } else if (type === 'next') {
@@ -98,6 +99,13 @@ export default function SymptomsDaily() {
     }
 
   }
+
+  const _handleOnDateChange = (selectedDate) => {
+    const currentDate = selectedDate || activeDay;
+    setDatePickerVisible(false);
+    setActiveDay(currentDate);
+  };
+
 
   const renderSymptoms = () => {
 
@@ -156,15 +164,15 @@ export default function SymptomsDaily() {
         </View>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.7)" /> */}
         <View style={styles.mainContent}>
-          <View style={[styles.listItemContainer]}>
+          <View style={styles.listItemContainer}>
             <TouchableOpacity style={styles.listItemLeft} onPress={() => _handleUpdateDate('back')}>
-              <MaterialIcons name={'arrow-back-ios'} size={22} color="#979797" />
+              <MaterialIcons name={'arrow-back-ios'} size={24} color="#979797" />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.listItemMiddle}>
+            <TouchableOpacity style={styles.listItemMiddle} onPress={() => setDatePickerVisible(true)}>
               <MonoText style={styles.listItemTitle}>{moment(activeDay).format('LL')}</MonoText>
             </TouchableOpacity>
             <TouchableOpacity style={styles.listItemRight} onPress={() => _handleUpdateDate('next')}>
-              <MaterialIcons name={'arrow-forward-ios'} size={22} color="#979797" />
+              <MaterialIcons name={'arrow-forward-ios'} size={24} color="#979797" />
             </TouchableOpacity>
           </View>
           <ScrollView style={styles.listItemWrapper}>
@@ -176,6 +184,12 @@ export default function SymptomsDaily() {
               <MonoText style={styles.buttonLabel}>Submit</MonoText>
             </TouchableOpacity>
           </ScrollView>
+          <DateTimePickerModal
+            isVisible={isDatePickerVisible}
+            mode="date"
+            onConfirm={_handleOnDateChange}
+            onCancel={() => setDatePickerVisible(false)}
+          />
         </View>
       </View>
     </SafeAreaView>

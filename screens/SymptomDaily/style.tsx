@@ -78,9 +78,11 @@ export default StyleSheet.create({
     borderTopRightRadius: 10
   },
   listItemLeft: {
+    paddingLeft: 10,
     backgroundColor: 'transparent'
   },
   listItemMiddle: {
+    paddingRight: 10,
     backgroundColor: 'transparent',
   },
   listItemRight: {
