@@ -8,6 +8,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
     paddingTop: 20
   },
+  scrollViewContainer: {
+    paddingBottom: 50
+  },
   headerContainer: {
     backgroundColor: 'transparent',
     justifyContent: 'center',
@@ -145,7 +148,6 @@ export default StyleSheet.create({
     backgroundColor: '#004b87',
     borderRadius: 10,
     marginTop: 20,
-    marginBottom: 60
   },
   buttonLabel: {
     color: 'white',

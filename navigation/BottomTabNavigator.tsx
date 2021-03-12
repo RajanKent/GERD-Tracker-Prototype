@@ -8,8 +8,8 @@ import * as React from 'react';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import SymptomsDaily from '../screens/SymptomDaily';
-import TabTwoScreen from '../screens/PSQI';
-import TabThreeScreen from '../screens/TabThreeScreen';
+import PSQIScreen from '../screens/PSQI';
+import FoodNSleep from '../screens/FoodNSleep';
 import { BottomTabParamList, TabOneParamList, TabTwoParamList, TabThreeParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -119,7 +119,7 @@ function TabTwoNavigator() {
     >
       <TabTwoStack.Screen
         name="TabTwoScreen"
-        component={TabTwoScreen}
+        component={PSQIScreen}
         options={{ headerTitle: 'Sleep Quality Assessment (PSQI)' }}
       />
     </TabTwoStack.Navigator>
@@ -137,7 +137,7 @@ function TabThreeNavigator() {
     >
       <TabThreeStack.Screen
         name="TabThreeScreen"
-        component={TabThreeScreen}
+        component={FoodNSleep}
         options={{ headerTitle: 'Food & Sleep' }}
       />
     </TabThreeStack.Navigator>

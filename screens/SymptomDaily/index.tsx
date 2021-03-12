@@ -176,7 +176,7 @@ export default function SymptomsDaily() {
               <MaterialIcons name={'arrow-forward-ios'} size={24} color="#979797" />
             </TouchableOpacity>
           </View>
-          <ScrollView style={styles.listItemWrapper}>
+          <ScrollView contentContainerStyle={styles.scrollViewContainer} style={styles.listItemWrapper}>
             {renderSymptoms()}
             <TouchableOpacity
               style={styles.buttonContainer}
