@@ -54,6 +54,6 @@ export default function TabTwoScreen() {
           {renderQues6_9()}
         </ScrollView>
       </View>
-    </SafeAreaView >
+    </SafeAreaView>
   );
 }

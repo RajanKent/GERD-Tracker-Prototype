@@ -3,9 +3,10 @@ import { Platform, StyleSheet } from "react-native";
 export default StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: '#004b87', // '#4287f5',
+    backgroundColor: '#004b87',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingTop: 20
   },
   headerContainer: {
     backgroundColor: 'transparent',
