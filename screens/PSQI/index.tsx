@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import { CheckBox } from 'react-native-elements'
 
-import { Text, View } from '../../components/Themed'
+import { View } from '../../components/Themed'
 import { MonoText } from '../../components/StyledText'
 import {
   PSQI_QUES_1_3,
