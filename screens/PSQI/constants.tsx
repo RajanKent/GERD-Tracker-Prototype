@@ -1,4 +1,4 @@
-export const PSQI_QUES_1_3: object[] = [
+export const PSQI_QUES_1_4: object[] = [
   {
     id: '1',
     ques: 'When have you usually gone to bed?',
@@ -13,100 +13,96 @@ export const PSQI_QUES_1_3: object[] = [
     id: '3',
     ques: 'What time have you usually gotten up in the morning?',
     ans: null
-  }
-]
-
-export const PSQI_QUES_4: object[] = [
+  },
   {
-    id: '4',
-    ques: 'A. What time have you usually gotten up in the morning?',
+    id: '4. A',
+    ques: 'What time have you usually gotten up in the morning?',
     ans: null
   },
   {
-    id: '4',
-    ques: 'B. How many hours were you in bed?',
+    id: '4. B',
+    ques: 'How many hours were you in bed?',
     ans: null
   }
 ]
 
-export const PSQI_QUES_5: object = {
-  header: {
-    title:
-      'During the past month, how often have you had trouble sleeping because you',
-    scale: [
-      {
-        label: 'Not during the past month',
-        value: 0
-      },
-      {
-        label: 'Less than once a week',
-        value: 0
-      },
-      {
-        label: 'Once or twice a week',
-        value: 0
-      },
-      {
-        label: 'Three or more times a week',
-        value: 0
-      }
-    ]
-  },
-  questions: [
+export const PSQI_QUES_5_HEADER: object = {
+  header:
+    'During the past month, how often have you had trouble sleeping because you',
+  scale: [
     {
-      id: 'A',
-      ques: 'Cannot get to sleep within 30 minutes',
-      ans: null
+      label: 'Not during the past month',
+      value: 0
     },
     {
-      id: 'B',
-      ques: 'Wake up in the middle of the night or early morning',
-      ans: null
+      label: 'Less than once a week',
+      value: 1
     },
     {
-      id: 'C',
-      ques: 'Have to get up to use the bathroom',
-      ans: null
+      label: 'Once or twice a week',
+      value: 2
     },
     {
-      id: 'D',
-      ques: 'Cannot breathe comfortably',
-      ans: null
-    },
-    {
-      id: 'E',
-      ques: 'Cough or snore loudly',
-      ans: null
-    },
-    {
-      id: 'F',
-      ques: 'Feel too cold',
-      ans: null
-    },
-    {
-      id: 'G',
-      ques: 'Feel too hot',
-      ans: null
-    },
-    {
-      id: 'H',
-      ques: 'Have bad dreams',
-      ans: null
-    },
-    {
-      id: 'I',
-      ques: 'Have pain',
-      ans: null
-    },
-    {
-      id: 'J',
-      ques:
-        'Other reason (s), please describe, including how often you have had trouble sleeping because of this reason (s):',
-      reason: '',
-      ans: null
+      label: 'Three or more times a week',
+      value: 3
     }
   ]
 }
+
+export const PSQI_QUES_5: object[] = [
+  {
+    id: 'A',
+    ques: 'Cannot get to sleep within 30 minutes',
+    value: null
+  },
+  {
+    id: 'B',
+    ques: 'Wake up in the middle of the night or early morning',
+    value: null
+  },
+  {
+    id: 'C',
+    ques: 'Have to get up to use the bathroom',
+    value: null
+  },
+  {
+    id: 'D',
+    ques: 'Cannot breathe comfortably',
+    value: null
+  },
+  {
+    id: 'E',
+    ques: 'Cough or snore loudly',
+    value: null
+  },
+  {
+    id: 'F',
+    ques: 'Feel too cold',
+    value: null
+  },
+  {
+    id: 'G',
+    ques: 'Feel too hot',
+    value: null
+  },
+  {
+    id: 'H',
+    ques: 'Have bad dreams',
+    value: null
+  },
+  {
+    id: 'I',
+    ques: 'Have pain',
+    value: null
+  },
+  {
+    id: 'J',
+    ques:
+      'Other reason (s), please describe, including how often you have had trouble sleeping because of this reason (s):',
+    reason: '',
+    value: null
+  }
+]
 
 export const PSQI_QUES_6_9: object[] = [
   {

@@ -57,8 +57,11 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   textInput: {
+    paddingTop: 15,
     borderBottomColor: '#e5e5e5',
+    fontFamily: 'mont-medium',
     borderBottomWidth: 1,
+    color: '#414142',
     height: 40
   },
   buttonContainer: {
