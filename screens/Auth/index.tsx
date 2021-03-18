@@ -29,7 +29,12 @@ export default function Authentication() {
       <View style={styles.container}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <ScrollView
-            style={{ width: '100%', height: '100%', marginTop: '50%' }}
+            style={{
+              width: '100%',
+              height: '100%',
+              marginTop: '30%',
+              backgroundColor: 'transparent',
+            }}
             contentContainerStyle={{
               justifyContent: 'center',
               alignItems: 'center',
