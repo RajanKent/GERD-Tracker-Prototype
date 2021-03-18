@@ -49,7 +49,6 @@ export default function Authentication() {
           <TouchableOpacity
             style={styles.buttonContainerLogin}
             onPress={async () => {
-              // await storageService.clearAll();
               if (username) {
                 await storageService.saveItem(
                   STORAGE_CONSTANTS.USER_NAME_KEY,

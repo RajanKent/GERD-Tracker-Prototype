@@ -48,7 +48,8 @@ export default function FoodNSleep() {
           <TouchableOpacity
             style={styles.buttonContainer}
             onPress={async () => {
-              await storageService.removeItem(STORAGE_CONSTANTS.USER_NAME_KEY);
+              await storageService.clearAll();
+              // await storageService.removeItem(STORAGE_CONSTANTS.USER_NAME_KEY);
               // const userName = await storageService.getItemFromStore(
               //   STORAGE_CONSTANTS.USER_NAME_KEY
               // );
