@@ -52,7 +52,7 @@ export default function Authentication() {
               <MonoText style={styles.subTitle}>Tracker</MonoText>
 
               <View style={styles.inputForm}>
-                <MonoText>Username</MonoText>
+                <MonoText>Enter your name</MonoText>
                 <TextInput
                   value={username}
                   style={styles.textInput}
