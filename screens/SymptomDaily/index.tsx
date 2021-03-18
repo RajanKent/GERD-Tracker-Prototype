@@ -17,6 +17,7 @@ import { SYMPTOMS_LIST, SEVERITY_SCALE_OPTIONS } from './constants';
 import { STORAGE_CONSTANTS } from '../../constants/storage';
 import { storageService } from '../../utils/storage';
 import { randomId } from '../../helpers';
+import { getGreetingTime } from './helper';
 import { changeStack } from '../../navigation/navigation.service';
 import styles from './style';
 
@@ -200,7 +201,7 @@ export default function SymptomsDaily(props) {
     <SafeAreaView style={styles.mainContainer}>
       <View style={styles.headerContainer}>
         <MonoText numberOfLines={1} style={styles.headerText}>
-          Good Morning!, {username}
+          {getGreetingTime(moment())}, {username}!
         </MonoText>
       </View>
       <View style={styles.subContainer}>
