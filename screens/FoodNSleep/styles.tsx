@@ -1,10 +1,10 @@
-import { Platform, StyleSheet } from "react-native";
+import { Platform, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   mainContainer: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
   },
   container: {
     width: '99%',
@@ -17,15 +17,18 @@ export default StyleSheet.create({
     height: 1,
     width: '100%',
   },
+  picLabel: {
+    marginTop: 20,
+    fontFamily: 'mont-semi-bold',
+  },
   scrollViewWrapper: {
     width: '100%',
-    marginBottom: 100,
     marginTop: 10,
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
   scrollViewContainer: {
     marginHorizontal: 10,
-    paddingBottom: 50
+    paddingBottom: 50,
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -39,6 +42,6 @@ export default StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     fontFamily: 'mont-semi-bold',
-    paddingLeft: 10
-  }
+    paddingLeft: 10,
+  },
 });
