@@ -15,7 +15,6 @@ import LinkingConfiguration from './LinkingConfiguration';
 import { storageService } from '../utils/storage';
 import { STORAGE_CONSTANTS } from '../constants/storage';
 import { navigationRef } from './navigation.service';
-console.log('🚀 ~ file: index.tsx ~ line 18 ~ navigationRef', navigationRef);
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
 export default function Navigation({
@@ -48,7 +47,6 @@ function RootNavigator() {
       const userName = await storageService.getItemFromStore(
         STORAGE_CONSTANTS.USER_NAME_KEY
       );
-      console.log('🚀 ~ file: index.tsx ~ line 51 ~ userName', userName);
       if (userName) {
         setIsLoggedIn(true);
       } else {

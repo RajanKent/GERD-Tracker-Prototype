@@ -12,10 +12,10 @@ export default StyleSheet.create({
     paddingBottom: 50,
   },
   headerContainer: {
-    // flexDirection: 'column',
+    width: '99%',
     backgroundColor: 'transparent',
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
     ...Platform.select({
       android: {
         marginTop: 10,
@@ -24,20 +24,8 @@ export default StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 15,
   },
-  headerContainerButton: {
-    backgroundColor: 'transparent',
-    justifyContent: 'center',
-    alignItems: 'center',
-    ...Platform.select({
-      android: {
-        marginTop: 10,
-      },
-    }),
-    paddingHorizontal: 10,
-    // paddingVertical: 15,
-  },
   headerText: {
-    width: 270,
+    paddingHorizontal: 20,
     fontSize: 17,
     fontFamily: 'mont-semi-bold',
     color: 'white',

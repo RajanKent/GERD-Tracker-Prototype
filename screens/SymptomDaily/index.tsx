@@ -62,8 +62,8 @@ export default function SymptomsDaily(props) {
         STORAGE_CONSTANTS.USER_NAME_KEY
       );
       userName && setUserName(userName);
-      forceUpdate();
     })();
+    forceUpdate();
   }, [username]);
 
   const getSymptomList = () => {
@@ -201,20 +201,6 @@ export default function SymptomsDaily(props) {
       <View style={styles.headerContainer}>
         <MonoText numberOfLines={1} style={styles.headerText}>
           Good Morning!, {username}
-        </MonoText>
-      </View>
-      <View style={styles.headerContainerButton}>
-        <MonoText
-          onPress={async () => {
-            await storageService.removeItem(STORAGE_CONSTANTS.USER_NAME_KEY);
-            const userName = await storageService.getItemFromStore(
-              STORAGE_CONSTANTS.USER_NAME_KEY
-            );
-            props.navigation.navigate('Auth');
-          }}
-          style={styles.logoutText}
-        >
-          Logout
         </MonoText>
       </View>
       <View style={styles.subContainer}>

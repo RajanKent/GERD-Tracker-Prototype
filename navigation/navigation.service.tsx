@@ -12,11 +12,7 @@ export const changeStack = (stackName) => {
 };
 
 const resetRoot = (routeName) => {
-  // navigationRef.current?.resetRoot({
-  //   index: 0,
-  //   routes: [{ name: routeName }],
-  // });
-  CommonActions.reset({
+  navigationRef.current?.resetRoot({
     index: 0,
     routes: [{ name: routeName }],
   });

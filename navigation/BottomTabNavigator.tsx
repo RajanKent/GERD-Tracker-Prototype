@@ -144,7 +144,10 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="TabTwoScreen"
         component={PSQIScreen}
-        options={{ headerTitle: 'Sleep Quality Assessment (PSQI)' }}
+        options={{
+          headerLeft: (props) => null,
+          headerTitle: 'Sleep Quality Assessment (PSQI)',
+        }}
       />
     </TabTwoStack.Navigator>
   );
@@ -162,7 +165,10 @@ function TabThreeNavigator() {
       <TabThreeStack.Screen
         name="TabThreeScreen"
         component={FoodNSleep}
-        options={{ headerTitle: 'Food & Sleep' }}
+        options={{
+          headerLeft: (props) => null,
+          headerTitle: 'Food & Sleep',
+        }}
       />
     </TabThreeStack.Navigator>
   );
