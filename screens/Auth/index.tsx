@@ -35,7 +35,7 @@ export default function Authentication() {
             style={styles.imageWrapper}
             source={require('../../assets/images/gred.jpeg')}
           />
-          <MonoText style={styles.title}>GRED Symptom</MonoText>
+          <MonoText style={styles.title}>GERD Symptom</MonoText>
           <MonoText style={styles.subTitle}>Tracker</MonoText>
 
           <View style={styles.inputForm}>
