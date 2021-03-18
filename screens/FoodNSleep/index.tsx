@@ -44,6 +44,7 @@ export default function FoodNSleep() {
       setImage(null);
       setSelectedImage(selectImage);
       const result = await ImagePicker.launchCameraAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
         allowsEditing: true,
         aspect: [4, 4],
         quality: 1,
