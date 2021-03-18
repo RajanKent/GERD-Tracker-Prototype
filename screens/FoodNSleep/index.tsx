@@ -26,15 +26,16 @@ export default function FoodNSleep() {
   React.useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
-        const {
-          status,
-        } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+        const { status } =
+          // await ImagePicker.requestMediaLibraryPermissionsAsync();
+          await ImagePicker.requestCameraPermissionsAsync();
         if (status !== 'granted') {
           Alert.alert(
             'Permission!',
-            'Sorry, we need camera roll permissions to make this work!'
+            'Sorry, we need camera  permissions to make this work!'
           );
         }
+        await ImagePicker.requestCameraPermissionsAsync();
       }
     })();
   }, []);
@@ -54,16 +55,17 @@ export default function FoodNSleep() {
         setImage(result.uri);
       }
     } catch (error) {
-      let result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
-        allowsEditing: true,
-        aspect: [4, 3],
-        quality: 1,
-      });
-
-      if (!result.cancelled) {
-        setImage(result.uri);
-      }
+      setImage(null);
+      Alert.alert('Error!', 'Sorry, Something went wrong!');
+      // let result = await ImagePicker.launchImageLibraryAsync({
+      //   mediaTypes: ImagePicker.MediaTypeOptions.All,
+      //   allowsEditing: true,
+      //   aspect: [4, 3],
+      //   quality: 1,
+      // });
+      // if (!result.cancelled) {
+      //   setImage(result.uri);
+      // }
     }
   };
 
