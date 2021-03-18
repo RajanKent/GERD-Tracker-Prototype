@@ -87,8 +87,8 @@ export default function PSQIScreen () {
                 >{`${item.id}. ${item.ques}`}</MonoText>
               </View>
               <View style={[styles.answerWrapper, styles.extraContainer]}>
-                {PSQI_QUES_5_HEADER.scale.map(opt => (
-                  <View style={styles.optionWrapper}>
+                {PSQI_QUES_5_HEADER.scale.map((opt, index) => (
+                  <View key={opt + index} style={styles.optionWrapper}>
                     <CheckBox
                       checked={item.value === opt.value}
                       onPress={() => _handleOnChange5(item, opt.value)}

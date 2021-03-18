@@ -10,7 +10,12 @@ import useColorScheme from '../hooks/useColorScheme';
 import SymptomsDaily from '../screens/SymptomDaily';
 import PSQIScreen from '../screens/PSQI';
 import FoodNSleep from '../screens/FoodNSleep';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList, TabThreeParamList } from '../types';
+import {
+  BottomTabParamList,
+  TabOneParamList,
+  TabTwoParamList,
+  TabThreeParamList,
+} from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -22,20 +27,23 @@ export default function BottomTabNavigator() {
       initialRouteName="TabOne"
       tabBarOptions={{
         tabStyle: {
-          marginBottom: 4
+          marginTop: 10,
         },
         activeTintColor: Colors[colorScheme].tint,
         labelStyle: {
           fontWeight: 'bold',
           fontFamily: 'mont-semi-bold',
-        }
-      }}>
+        },
+      }}
+    >
       <BottomTab.Screen
         name="TabOne"
         component={TabOneNavigator}
         options={{
           title: 'Symptoms Daily',
-          tabBarIcon: ({ color }) => <TabBarMCIcon name="format-list-checks" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarMCIcon name="format-list-checks" color={color} />
+          ),
         }}
       />
       <BottomTab.Screen
@@ -51,7 +59,9 @@ export default function BottomTabNavigator() {
         component={TabThreeNavigator}
         options={{
           title: 'Food & Sleep',
-          tabBarIcon: ({ color }) => <TabBarMIcon name="add-a-photo" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarMIcon name="add-a-photo" color={color} />
+          ),
         }}
       />
     </BottomTab.Navigator>
@@ -60,21 +70,35 @@ export default function BottomTabNavigator() {
 
 // You can explore the built-in icon families and icons on the web at:
 // https://icons.expo.fyi/
-function TabBarFIcon(props: { name: React.ComponentProps<typeof FontAwesome>['name']; color: string }) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+function TabBarFIcon(props: {
+  name: React.ComponentProps<typeof FontAwesome>['name'];
+  color: string;
+}) {
+  return <FontAwesome size={30} sstyle={{ marginBottom: -3 }} {...props} />;
 }
 
-function TabBarMCIcon(props: { name: React.ComponentProps<typeof MaterialCommunityIcons>['name']; color: string }) {
-  return <MaterialCommunityIcons size={30} style={{ marginBottom: -3 }} {...props} />;
+function TabBarMCIcon(props: {
+  name: React.ComponentProps<typeof MaterialCommunityIcons>['name'];
+  color: string;
+}) {
+  return (
+    <MaterialCommunityIcons
+      size={30}
+      sstyle={{ marginBottom: -3 }}
+      {...props}
+    />
+  );
 }
-function TabBarMIcon(props: { name: React.ComponentProps<typeof MaterialIcons>['name']; color: string }) {
+function TabBarMIcon(props: {
+  name: React.ComponentProps<typeof MaterialIcons>['name'];
+  color: string;
+}) {
   return <MaterialIcons size={30} style={{ marginBottom: -3 }} {...props} />;
 }
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const TabOneStack = createStackNavigator<TabOneParamList>();
-
 
 const commonTabStyle = {
   headerStyle: {
@@ -86,8 +110,8 @@ const commonTabStyle = {
   headerTintColor: '#fff',
   headerTitleStyle: {
     fontFamily: 'mont-semi-bold',
-    alignSelf: 'center'
-  }
+    alignSelf: 'center',
+  },
 };
 
 function TabOneNavigator() {
@@ -95,7 +119,7 @@ function TabOneNavigator() {
     <TabOneStack.Navigator
       screenOptions={{
         headerShown: false,
-        ...commonTabStyle
+        ...commonTabStyle,
       }}
     >
       <TabOneStack.Screen
@@ -114,7 +138,7 @@ function TabTwoNavigator() {
     <TabTwoStack.Navigator
       screenOptions={{
         headerShown: true,
-        ...commonTabStyle
+        ...commonTabStyle,
       }}
     >
       <TabTwoStack.Screen
@@ -132,7 +156,7 @@ function TabThreeNavigator() {
     <TabThreeStack.Navigator
       screenOptions={{
         headerShown: true,
-        ...commonTabStyle
+        ...commonTabStyle,
       }}
     >
       <TabThreeStack.Screen

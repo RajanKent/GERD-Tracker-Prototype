@@ -1,4 +1,4 @@
-import { Platform, StyleSheet } from "react-native";
+import { Platform, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   mainContainer: {
@@ -6,28 +6,50 @@ export default StyleSheet.create({
     backgroundColor: '#004b87',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 20
+    paddingTop: 20,
   },
   scrollViewContainer: {
-    paddingBottom: 50
+    paddingBottom: 50,
   },
   headerContainer: {
+    // flexDirection: 'column',
     backgroundColor: 'transparent',
     justifyContent: 'center',
     alignItems: 'center',
     ...Platform.select({
       android: {
-        marginTop: 10
-      }
+        marginTop: 10,
+      },
     }),
     paddingHorizontal: 10,
     paddingVertical: 15,
-
+  },
+  headerContainerButton: {
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+    ...Platform.select({
+      android: {
+        marginTop: 10,
+      },
+    }),
+    paddingHorizontal: 10,
+    // paddingVertical: 15,
   },
   headerText: {
+    width: 270,
     fontSize: 17,
     fontFamily: 'mont-semi-bold',
-    color: 'white'
+    color: 'white',
+  },
+  logoutText: {
+    position: 'absolute',
+    top: -30,
+    right: -170,
+    fontSize: 10,
+    color: 'white',
+    alignSelf: 'flex-end',
+    fontFamily: 'mont-semi-bold',
   },
   subContainer: {
     flex: 1,
@@ -40,7 +62,7 @@ export default StyleSheet.create({
     fontSize: 20,
     marginTop: 10,
     color: '#4C545B',
-    fontFamily: 'mont-medium'
+    fontFamily: 'mont-medium',
   },
   startDateContainer: {
     padding: 10,
@@ -63,7 +85,7 @@ export default StyleSheet.create({
   listItemWrapper: {
     marginBottom: 100,
     marginTop: 10,
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
   listItemContainer: {
     padding: 20,
@@ -79,23 +101,23 @@ export default StyleSheet.create({
   },
   listItemContainerActive: {
     borderTopLeftRadius: 10,
-    borderTopRightRadius: 10
+    borderTopRightRadius: 10,
   },
   listItemLeft: {
     paddingLeft: 10,
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   listItemMiddle: {
     paddingRight: 10,
     backgroundColor: 'transparent',
   },
   listItemRight: {
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   listItemTitle: {
     fontSize: 18,
     color: '#8F9499',
-    fontFamily: 'mont-semi-bold'
+    fontFamily: 'mont-semi-bold',
   },
   checkboxContainer: {},
   optionListWrapper: {
@@ -103,15 +125,15 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ededed',
     borderRadius: 10,
-    marginVertical: 10
+    marginVertical: 10,
   },
   optionItemLabelContainer: {
     borderBottomWidth: 1,
-    borderColor: '#ededed'
+    borderColor: '#ededed',
   },
   optionItemLabel: {
     fontSize: 15,
-    paddingBottom: 10
+    paddingBottom: 10,
   },
   optionContainer: {
     flexDirection: 'row',
@@ -137,7 +159,7 @@ export default StyleSheet.create({
   optionLabel: {
     fontSize: 10,
     color: 'white',
-    fontFamily: 'mont-bold'
+    fontFamily: 'mont-bold',
   },
   optionLabelSelected: {
     // color: 'white',
@@ -152,6 +174,6 @@ export default StyleSheet.create({
   buttonLabel: {
     color: 'white',
     textAlign: 'center',
-    fontFamily: 'mont-semi-bold'
-  }
+    fontFamily: 'mont-semi-bold',
+  },
 });
