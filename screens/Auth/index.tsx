@@ -16,7 +16,7 @@ import { storageService } from '../../utils/storage';
 import { changeStack } from '../../navigation/navigation.service';
 import styles from './styles';
 
-export default function Authentication(props) {
+export default function Authentication() {
   const [username, setUsername] = React.useState('');
 
   return (
@@ -24,45 +24,52 @@ export default function Authentication(props) {
       <StatusBar style="dark" />
 
       <View style={styles.container}>
-        <Image
-          style={styles.imageWrapper}
-          source={require('../../assets/images/gred.jpeg')}
-        />
-        <MonoText style={styles.title}>GRED Symptom</MonoText>
-        <MonoText style={styles.subTitle}>Tracker</MonoText>
-
-        <View style={styles.inputForm}>
-          <MonoText>Username</MonoText>
-          <TextInput
-            value={username}
-            style={styles.textInput}
-            onChangeText={setUsername}
-          />
-        </View>
-        <TouchableOpacity
-          style={styles.buttonContainerLogin}
-          onPress={async () => {
-            // await storageService.clearAll();
-            if (username) {
-              await storageService.saveItem(
-                STORAGE_CONSTANTS.USER_NAME_KEY,
-                username
-              );
-              props.navigation.navigate('Root');
-              // changeStack('Root');
-            } else {
-              Alert.alert('Login Error!', 'Please enter valid username.');
-            }
+        <ScrollView
+          style={{ width: '100%', height: '100%', marginTop: '50%' }}
+          contentContainerStyle={{
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
-          <MonoText style={styles.buttonLabel}>Login</MonoText>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttonContainerRegister}
-          onPress={() => null}
-        >
-          <MonoText style={styles.buttonLabelRegister}>Register</MonoText>
-        </TouchableOpacity>
+          <Image
+            style={styles.imageWrapper}
+            source={require('../../assets/images/gred.jpeg')}
+          />
+          <MonoText style={styles.title}>GRED Symptom</MonoText>
+          <MonoText style={styles.subTitle}>Tracker</MonoText>
+
+          <View style={styles.inputForm}>
+            <MonoText>Username</MonoText>
+            <TextInput
+              value={username}
+              style={styles.textInput}
+              onChangeText={setUsername}
+            />
+          </View>
+          <TouchableOpacity
+            style={styles.buttonContainerLogin}
+            onPress={async () => {
+              // await storageService.clearAll();
+              if (username) {
+                await storageService.saveItem(
+                  STORAGE_CONSTANTS.USER_NAME_KEY,
+                  username
+                );
+                changeStack('Root');
+              } else {
+                Alert.alert('Login Error!', 'Please enter valid username.');
+              }
+            }}
+          >
+            <MonoText style={styles.buttonLabel}>Login</MonoText>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonContainerRegister}
+            onPress={() => null}
+          >
+            <MonoText style={styles.buttonLabelRegister}>Register</MonoText>
+          </TouchableOpacity>
+        </ScrollView>
       </View>
     </SafeAreaView>
   );

@@ -10,5 +10,6 @@ export const STORAGE_CONSTANTS = {
   PSQI_KEY_4: `@psqi-4`,
   PSQI_KEY_5: `@psqi-5`,
   PSQI_KEY_6_9: `@psqi-6-9`,
-  USER_NAME_KEY: `@user-name-key`
+  USER_NAME_KEY: `@user-name-key`,
+  BED_TIME_KEY: (date: any) => `@bed-time-${moment(date).format('MMDDYY')}`
 }
