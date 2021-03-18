@@ -32,7 +32,7 @@ export default StyleSheet.create({
   },
   inputForm: {
     width: '80%',
-    marginVertical: 60,
+    marginBottom: 40,
     paddingTop: 40,
   },
 
