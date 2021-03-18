@@ -32,7 +32,7 @@ export default function Authentication() {
             style={{
               width: '100%',
               height: '100%',
-              marginTop: '30%',
+              marginTop: '40%',
               backgroundColor: 'transparent',
             }}
             contentContainerStyle={{
