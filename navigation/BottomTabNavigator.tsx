@@ -41,6 +41,16 @@ export default function BottomTabNavigator() {
       }}
     >
       <BottomTab.Screen
+        name="TabFour"
+        component={TabFourNavigator}
+        options={{
+          title: 'Analysis',
+          tabBarIcon: ({ color }) => (
+            <TabBarMIcon name="analytics" color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
         name="TabOne"
         component={TabOneNavigator}
         options={{
@@ -65,16 +75,6 @@ export default function BottomTabNavigator() {
           title: 'Food & Sleep',
           tabBarIcon: ({ color }) => (
             <TabBarMIcon name="add-a-photo" color={color} />
-          ),
-        }}
-      />
-      <BottomTab.Screen
-        name="TabFour"
-        component={TabFourNavigator}
-        options={{
-          title: 'Analysis',
-          tabBarIcon: ({ color }) => (
-            <TabBarMIcon name="analytics" color={color} />
           ),
         }}
       />
