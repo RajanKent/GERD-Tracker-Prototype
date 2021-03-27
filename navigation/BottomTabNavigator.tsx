@@ -30,7 +30,8 @@ export default function BottomTabNavigator() {
       initialRouteName="TabOne"
       tabBarOptions={{
         tabStyle: {
-          marginTop: 10,
+          marginTop: 2,
+          paddingBottom: 2,
         },
         activeTintColor: Colors[colorScheme].tint,
         labelStyle: {
