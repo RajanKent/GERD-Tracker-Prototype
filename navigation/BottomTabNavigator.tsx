@@ -10,11 +10,14 @@ import useColorScheme from '../hooks/useColorScheme';
 import SymptomsDaily from '../screens/SymptomDaily';
 import PSQIScreen from '../screens/PSQI';
 import FoodNSleep from '../screens/FoodNSleep';
+import Analysis from '../screens/Analysis';
+
 import {
   BottomTabParamList,
   TabOneParamList,
   TabTwoParamList,
   TabThreeParamList,
+  TabFourParamList,
 } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -64,6 +67,16 @@ export default function BottomTabNavigator() {
           ),
         }}
       />
+      <BottomTab.Screen
+        name="TabFour"
+        component={TabFourNavigator}
+        options={{
+          title: 'Analysis',
+          tabBarIcon: ({ color }) => (
+            <TabBarMIcon name="analytics" color={color} />
+          ),
+        }}
+      />
     </BottomTab.Navigator>
   );
 }
@@ -96,10 +109,6 @@ function TabBarMIcon(props: {
   return <MaterialIcons size={30} style={{ marginBottom: -3 }} {...props} />;
 }
 
-// Each tab has its own navigation stack, you can read more about this pattern here:
-// https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>();
-
 const commonTabStyle = {
   headerStyle: {
     backgroundColor: '#004b87',
@@ -113,6 +122,10 @@ const commonTabStyle = {
     alignSelf: 'center',
   },
 };
+
+// Each tab has its own navigation stack, you can read more about this pattern here:
+// https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
+const TabOneStack = createStackNavigator<TabOneParamList>();
 
 function TabOneNavigator() {
   return (
@@ -171,5 +184,26 @@ function TabThreeNavigator() {
         }}
       />
     </TabThreeStack.Navigator>
+  );
+}
+
+const TabFourStack = createStackNavigator<TabFourParamList>();
+function TabFourNavigator() {
+  return (
+    <TabFourStack.Navigator
+      screenOptions={{
+        headerShown: true,
+        ...commonTabStyle,
+      }}
+    >
+      <TabFourStack.Screen
+        name="TabFourScreen"
+        component={Analysis}
+        options={{
+          headerLeft: (props) => null,
+          headerTitle: 'Analysis',
+        }}
+      />
+    </TabFourStack.Navigator>
   );
 }
