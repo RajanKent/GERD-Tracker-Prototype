@@ -27,7 +27,7 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="TabFour"
       tabBarOptions={{
         tabStyle: {
           marginTop: 2,
