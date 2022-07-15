@@ -1,3 +1,3 @@
 # GERD-Tracker-Prototype
 
-GERD Symptoms Tracker App (Prototype)
+GERD Symptoms Tracker Application (Prototype)
